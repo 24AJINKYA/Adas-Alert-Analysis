@@ -15,3 +15,23 @@ print(data.head())
             2  cas_fcw  01-06-2022  17:01:28  12.747127  79.995694      805     58         NaN         NaN         NaN
             3  cas_fcw  01-06-2022  17:46:32  12.528537  79.898806      805     59         NaN         NaN         NaN
             4  cas_hmw  01-06-2022  06:14:53  12.815835  80.033858      805     45         NaN         NaN         NaN
+
+
+
+
+### CHECKING FOR NULL VALUES 
+
+missing_values = data.isnull().sum()
+print(missing_values)
+
+
+                                    Alert            0
+                                    Date             0
+                                    Time             0
+                                    Lat              0
+                                    Long             0
+                                    Vehicle          0
+                                    Speed            0
+
+
+                        
