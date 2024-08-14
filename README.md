@@ -17,6 +17,32 @@ The primary objectives of this project are:
 
 4.**Visualize Data:** Develop visualizations that clearly communicate the relationships between vehicle speed, alert types, and geographical location to make the findings easily understandable.
 
+### Project Structure
+
+    ADAS_Alert_Analysis/
+    │
+    ├── data/
+    │   ├── sample_data.csv
+    │   ├── preprocessing.py
+    │   ├── README.md
+    │
+    ├── notebooks/
+    │   ├── data_preprocessing.ipynb
+    │   ├── eda.ipynb
+    │   ├── visualization.ipynb
+    │   └── README.md
+    │
+    ├── reports/
+    │   ├── figures/
+    │   ├── observations.md
+    │   ├── final_report.md
+    │   └── presentation.pptx
+    │
+    ├── .gitignore
+    ├── LICENSE
+    ├── README.md
+    └── requirements.txt
+
 ### Dataset
 The dataset includes information on multiple vehicles, each generating a series of ADAS alerts over time. 
 
