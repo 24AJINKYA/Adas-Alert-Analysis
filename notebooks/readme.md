@@ -76,3 +76,78 @@ Finally, we save the cleaned dataset to a new CSV file for further analysis.
     data.to_csv(cleaned_file_path, index=False)
 
     print("Cleaned data saved to:", cleaned_file_path)
+
+
+
+
+# ADAS Alert Data Exploratory Data Analysis (EDA)
+
+This section of the project involves performing Exploratory Data Analysis (EDA) to understand the distribution and patterns within the ADAS Alert dataset.
+
+## 1. Distribution of Alerts
+
+We start by analyzing the distribution of different types of ADAS alerts in the dataset.
+    
+    plt.figure(figsize=(10, 6))
+    sns.countplot(data['Alert'])
+    plt.title('Distribution of ADAS Alerts')
+    plt.xlabel('Alert Type')
+    plt.ylabel('Count')
+    plt.xticks(rotation=45)
+    plt.show()
+    
+**Explanation:** The countplot visualizes the number of occurrences for each alert type. This helps us identify the most and least common alerts in the dataset.
+
+## 2. Speed Distribution
+Next, we explore how vehicle speed varies when alerts are triggered.
+
+    plt.figure(figsize=(10, 6))
+    sns.histplot(data['Speed'], bins=30, kde=True)
+    plt.title('Speed Distribution at the Time of Alert')
+    plt.xlabel('Speed (km/h)')
+    plt.ylabel('Frequency')
+    plt.show()
+**Explanation:** A histogram with a Kernel Density Estimate (KDE) shows the distribution of vehicle speeds at the time of alert generation, highlighting common speed ranges associated with alerts.
+
+## 3. Alerts by Vehicle
+We then look at how alerts are distributed across different vehicles.
+
+    plt.figure(figsize=(12, 6))
+    sns.countplot(y='Vehicle', hue='Alert', data=data)
+    plt.title('Number of Alerts per Vehicle')
+    plt.xlabel('Count')
+    plt.ylabel('Vehicle')
+    plt.show()
+**Explanation:** This plot shows the number of alerts each vehicle has generated, broken down by alert type. It helps in identifying if certain vehicles are more prone to specific alerts.
+
+## 4. Alert Frequency by Time of Day
+We also analyze when alerts are most frequently triggered during the day.
+
+    data['Hour'] = pd.to_datetime(data['Time'], format='%H:%M:%S').dt.hour
+    plt.figure(figsize=(10, 6))
+    sns.countplot(data['Hour'], palette='viridis')
+    plt.title('Alert Frequency by Hour of the Day')
+    plt.xlabel('Hour of the Day')
+    plt.ylabel('Number of Alerts')
+    plt.show()
+**Explanation:** By converting the time data to hours, we can observe which times of the day are most associated with alerts, giving insights into potential high-risk periods.
+
+## 5. Correlation Heatmap
+A correlation heatmap is generated to observe the relationships between different numerical features.
+
+    plt.figure(figsize=(8, 6))
+    sns.heatmap(data.corr(), annot=True, cmap='coolwarm')
+    plt.title('Correlation Heatmap of Dataset Features')
+    plt.show()
+**Explanation:** The correlation heatmap highlights relationships between variables, such as speed and alert frequency, to uncover potential dependencies or patterns in the data.
+
+## 6. Geographical Distribution of Alerts
+Finally, we map the geographical distribution of alerts using latitude and longitude.
+
+    plt.figure(figsize=(10, 6))
+    sns.scatterplot(x='Long', y='Lat', hue='Alert', data=data)
+    plt.title('Geographical Distribution of Alerts')
+    plt.xlabel('Longitude')
+    plt.ylabel('Latitude')
+    plt.show()
+**Explanation:** This scatter plot shows where alerts occur on a map, revealing geographic hotspots where certain alerts are more frequent.
