@@ -22,9 +22,7 @@ The primary objectives of this project are:
     ADAS_Alert_Analysis/
     │
     ├── data/
-    │   ├── sample_data.csv
-    │   ├── preprocessing.py
-    │   ├── README.md
+    │   ├── sample_data.md    │   
     │
     ├── notebooks/
     │   ├── data_preprocessing.ipynb
