@@ -50,11 +50,13 @@ Identifying Unique Vehicles
 ### Get the list of unique vehicles in the dataset
     unique_vehicles = data['Vehicle'].unique()
     print(f"Number of unique vehicles: {len(unique_vehicles)}")
-    Identifying Unique Alerts
+    #Identifying Unique Alerts
 
 ### Get the list of unique alerts in the dataset
     unique_alerts = data['Alert'].unique()
     print(f"Number of unique alert types: {len(unique_alerts)}")
+![image](https://github.com/user-attachments/assets/d1b44be5-0741-488f-8563-f11432cf8413)
+
 ## 5. Date and Time Conversion
 For better analysis, the Date and Time columns need to be in the appropriate format. We will convert them to datetime and extract useful components like year, month, and day.
 
@@ -73,6 +75,8 @@ Duplicate entries can distort analysis results. We’ll check for duplicates and
     duplicates = data.duplicated()
     print(f"Number of duplicate rows: {duplicates.sum()}")
     data = data.drop_duplicates()
+![image](https://github.com/user-attachments/assets/9a383e9a-ebfe-451a-9acf-863a5d37745f)
+
 ## 7. Saving the Cleaned Data
 Finally, we save the cleaned dataset to a new CSV file for further analysis.
 
