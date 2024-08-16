@@ -151,3 +151,68 @@ Finally, we map the geographical distribution of alerts using latitude and longi
     plt.ylabel('Latitude')
     plt.show()
 **Explanation:** This scatter plot shows where alerts occur on a map, revealing geographic hotspots where certain alerts are more frequent.
+
+
+# ADAS Alert Data Visualization
+
+This section presents visualizations that highlight key insights from the ADAS Alert dataset. Each visualization is accompanied by an explanation to help interpret the results.
+
+## 1. Bar Plot of Alerts by Vehicle
+
+We begin with a bar plot that shows the distribution of alerts across different vehicles.
+
+    plt.figure(figsize=(12, 6))
+    sns.countplot(x='Vehicle', hue='Alert', data=data)
+    plt.title('Bar Plot of Alerts by Vehicle')
+    plt.xlabel('Vehicle')
+    plt.ylabel('Number of Alerts')
+    plt.xticks(rotation=45)
+    plt.show()
+
+**Explanation:** This bar plot helps identify which vehicles are most associated with specific types of alerts. It's useful for understanding vehicle behavior and alert patterns.
+
+## 2. Speed vs. Alerts Boxplot
+Next, we examine how vehicle speed varies across different alert types using a boxplot.
+
+    plt.figure(figsize=(10, 6))
+    sns.boxplot(x='Alert', y='Speed', data=data)
+    plt.title('Speed Distribution across Different Alerts')
+    plt.xlabel('Alert Type')
+    plt.ylabel('Speed (km/h)')
+    plt.xticks(rotation=45)
+    plt.show()
+**Explanation:** The boxplot illustrates the speed distribution for each alert type, revealing how speed influences alert generation and highlighting potential outliers.
+
+## 3. Pair Plot of Numerical Features
+We then create a pair plot to visualize relationships between numerical features like speed, latitude, and longitude.
+
+    sns.pairplot(data[['Speed', 'Lat', 'Long']])
+    plt.suptitle('Pair Plot of Speed, Latitude, and Longitude', y=1.02)
+    plt.show()
+**Explanation:** The pair plot shows scatter plots of numerical feature pairs, helping to identify correlations or patterns between variables such as speed and location data.
+
+## 4. Time Series Plot of Alerts Over Days
+A time series plot is used to observe how the number of alerts changes over time.
+
+    data['Date'] = pd.to_datetime(data['Date'])
+    alerts_per_day = data.groupby('Date').size()
+    plt.figure(figsize=(12, 6))
+    alerts_per_day.plot()
+    plt.title('Time Series Plot of Alerts Over Time')
+    plt.xlabel('Date')
+    plt.ylabel('Number of Alerts')
+    plt.show()
+**Explanation:** This plot tracks the number of alerts generated each day, helping to identify trends or periodic spikes in alert frequency over time.
+
+## 5. Heatmap of Alerts per Vehicle and Time of Day
+Lastly, we visualize the concentration of alerts for each vehicle across different hours of the day using a heatmap.
+
+    data['Hour'] = pd.to_datetime(data['Time'], format='%H:%M:%S').dt.hour
+    heatmap_data = data.pivot_table(index='Vehicle', columns='Hour', aggfunc='size', fill_value=0)
+    plt.figure(figsize=(14, 8))
+    sns.heatmap(heatmap_data, cmap='coolwarm')
+    plt.title('Heatmap of Alerts per Vehicle and Time of Day')
+    plt.xlabel('Hour of the Day')
+    plt.ylabel('Vehicle')
+    plt.show()
+**Explanation:** The heatmap highlights when and which vehicles are more prone to generating alerts throughout the day. It can help in scheduling maintenance or understanding driver behavior.
