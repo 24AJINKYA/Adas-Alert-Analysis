@@ -26,7 +26,8 @@ First, we load the dataset using pandas to begin our preprocessing.
 ### Display the first few rows of the dataset
     data.head()
 
-    ![Uploading image.png…]()
+  ![image](https://github.com/user-attachments/assets/8c05d194-1fd9-419d-9513-2ad646064a84)
+
 
 #### 3. Basic Dataset Information
 Understanding the basic structure of the dataset is crucial. We will inspect the data types, check for missing values, and get a general overview.
