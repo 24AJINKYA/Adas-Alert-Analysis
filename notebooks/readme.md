@@ -34,11 +34,14 @@ Understanding the basic structure of the dataset is crucial. We will inspect the
 
 ### Basic Information about the dataset
     data.info()
-    Handling Missing Values
-    Missing data can skew the analysis. We will check for missing values and handle them appropriately.
+    #Handling Missing Values
+    #Missing data can skew the analysis. We will check for missing values and handle them appropriately.
+![image](https://github.com/user-attachments/assets/3a3bb5e3-72ce-4ef9-9e3c-2f58320f6bc3)
 
 ### Check for any missing values in the dataset
     data.isnull().sum()
+![image](https://github.com/user-attachments/assets/e841a1d4-222c-443a-9b98-883f20a0acc7)
+
 ## 4. Exploring Unique Vehicles and Alerts
 Understanding the variety of vehicles and alerts present in the dataset helps in grasping the breadth of the data.
 
