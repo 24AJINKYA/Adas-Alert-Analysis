@@ -2,11 +2,11 @@
 The analysis of ADAS (Advanced Driver Assistance Systems) alerts provides insights into the frequency and types of alerts generated across different vehicles, as well as how these alerts correlate with vehicle speed. The following sections present a summary of key observations, supported by visualizations.
 
 ![Screenshot 2024-08-12 161235](https://github.com/user-attachments/assets/4d8dc627-6800-4c87-83d7-4cfd59df55e5)
-                                                      Graph i
+                                                GRAPH- 1
 
 
 ![Screenshot 2024-08-12 161711](https://github.com/user-attachments/assets/71110740-4b1c-414f-96b6-f46acadac961)
-                                                        Graph ii
+                                                       GRAPH- 2
 
 
 
